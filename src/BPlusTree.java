@@ -20,6 +20,13 @@ public class BPlusTree<T extends Comparable> {
         }
     }
 
+    public T find(T value) {
+        if(root == null) {
+            return null;
+        }
+        return (T) root.find(value);
+    }
+
     public String toPrintTree(){
         if(root == null) {
             return "";
