@@ -8,10 +8,15 @@ public class BPlusTree<T extends Comparable> {
     }
 
     public void insert(T value) {
-        // TODO
+        if(root == null) {
+            root = new BPlusNode(k);
+        }
+        root.insert(value);
     }
 
     public void delete(T value) {
-        // TODO
+        if(root != null) {
+            root.delete(value);
+        }
     }
 }
