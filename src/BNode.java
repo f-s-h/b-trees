@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class BPlusNode<T extends Comparable> {
+public class BNode<T extends Comparable> {
     private final int MIN_SIZE;
     private final int MAX_SIZE;
     private List<T> values;
-    private List<BPlusNode> childNodes;
-    private BPlusNode parentNode;
+    private List<BNode> childNodes;
+    private BNode parentNode;
 
-    public BPlusNode(int k) {
+    public BNode(int k) {
         this.MIN_SIZE = k;
         this.MAX_SIZE = 2 * k;
         this.values = new ArrayList<>();
         this.childNodes = new ArrayList<>();
     }
 
-    private BPlusNode(int k, BPlusNode parentNode, List<T> values) {
+    private BNode(int k, BNode parentNode, List<T> values) {
         this.MIN_SIZE = k;
         this.MAX_SIZE = 2 * k;
         this.parentNode = parentNode;
@@ -44,6 +44,7 @@ public class BPlusNode<T extends Comparable> {
             }
             else if (compareValue == 0) {
                 // TODO: Handling if List is too small
+                // TODO: Handling when inner node
                 values.remove(i);
                 return;
             }
@@ -88,11 +89,11 @@ public class BPlusNode<T extends Comparable> {
         return values;
     }
 
-    public List<BPlusNode> getChildNodes() {
+    public List<BNode> getChildNodes() {
         return childNodes;
     }
 
-    public BPlusNode getParentNode() {
+    public BNode getParentNode() {
         return parentNode;
     }
 }

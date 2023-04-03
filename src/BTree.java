@@ -1,15 +1,15 @@
-public class BPlusTree<T extends Comparable> {
+public class BTree<T extends Comparable> {
     private final int k;
-    private BPlusNode root;
+    private BNode root;
 
-    public BPlusTree(int k) {
+    public BTree(int k) {
         this.k = k;
         this.root = null;
     }
 
     public void insert(T value) {
         if(root == null) {
-            root = new BPlusNode(k);
+            root = new BNode(k);
         }
         root.insert(value);
     }
