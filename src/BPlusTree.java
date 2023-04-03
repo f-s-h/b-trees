@@ -1,4 +1,4 @@
-public class BPlusTree {
+public class BPlusTree<T extends Comparable> {
     private final int k;
     private BPlusNode root;
 
@@ -7,11 +7,11 @@ public class BPlusTree {
         this.root = null;
     }
 
-    public void insert() {
+    public void insert(T value) {
         // TODO
     }
 
-    public void delete() {
-
+    public void delete(T value) {
+        // TODO
     }
 }
