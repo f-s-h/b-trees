@@ -32,7 +32,23 @@ public class BPlusNode<T extends Comparable> {
     }
 
     public void delete(T value) {
-        // TODO
+        for (int i = 0; i < values.size(); i++) {
+            int compareValue = value.compareTo(values.get(i));
+            if(compareValue < 0) {
+                if(i < childNodes.size()) {
+                    childNodes.get(i).delete(value);
+                }
+                else{
+                    return;
+                }
+            }
+            else if (compareValue == 0) {
+                // TODO: Handling if List is too small
+                values.remove(i);
+                return;
+            }
+        }
+        childNodes.get(childNodes.size() - 1).delete(value);
     }
 
     public T find(T value) {
