@@ -36,8 +36,21 @@ public class BPlusNode<T extends Comparable> {
     }
 
     public T find(T value) {
-        // TODO
-        return null;
+        for (int i = 0; i < values.size(); i++) {
+            int compareValue = value.compareTo(values.get(i));
+            if(compareValue < 0) {
+                if(i < childNodes.size()) {
+                    return (T) childNodes.get(i).find(value);
+                }
+                else{
+                    return null;
+                }
+            }
+            else if (compareValue == 0) {
+                return values.get(i);
+            }
+        }
+        return (T) childNodes.get(childNodes.size() - 1);
     }
 
     @Override
