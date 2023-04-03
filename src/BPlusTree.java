@@ -19,4 +19,11 @@ public class BPlusTree<T extends Comparable> {
             root.delete(value);
         }
     }
+
+    public String toPrintTree(){
+        if(root == null) {
+            return "";
+        }
+        return root.toPrintTree();
+    }
 }
